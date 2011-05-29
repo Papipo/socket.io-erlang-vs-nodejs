@@ -1,0 +1,3 @@
+node_modules
+ebin
+socket.io-erlang/deps

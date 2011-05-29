@@ -1,0 +1,22 @@
+This is a pretty naïve comparison of socket.io implementations in nodejs and erlang.
+
+Here we have two servers that respond "PONG" to any message they receive.
+In order to be able to run the nodejs version, you need to have node and its socket.io module installed. You can do that with:
+
+    npm install socket.io
+    
+In order to be able to run the erlang version, you first need to run:
+
+    git submodule init
+    git submodule update
+    cd socket.io-erlang
+    make
+
+Then just run 'node node.js' or ./erlang. A http server will be started on port 3000.
+Note that you can't run both servers at the same time.
+
+In the webpage that will be displayed when you go to http://localhost:3000, you can set a number of messages to be sent to the server via socket.io.
+In my computer nodejs processes 10k messages in 1250ms, and erlang version does the same in 1050ms.
+With 100k messages, erlang handles them in 70secs, and node drops the connection thus failing the test.
+
+We know that benchmarks aren't really that useful, since they differ from real production code. But this one served me to decide to go with erlang instead of node for a game I will be developing. Not being able to handle 100k messages is a no-no, given that erlang is able to handle them without problem.

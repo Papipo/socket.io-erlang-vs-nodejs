@@ -1,0 +1,3 @@
+[submodule "socket.io-erlang"]
+	path = socket.io-erlang
+	url = git://github.com/yrashk/socket.io-erlang.git
